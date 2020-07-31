@@ -1,0 +1,40 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.dpslink.mobileapi"
+    },
+    "jhipsterVersion": "6.10.1",
+    "applicationType": "monolith",
+    "baseName": "mobileapi",
+    "packageName": "com.dpslink.mobileapi",
+    "packageFolder": "com/dpslink/mobileapi",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": true,
+    "websocket": "spring-websocket",
+    "databaseType": "sql",
+    "devDatabaseType": "postgresql",
+    "prodDatabaseType": "postgresql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "NmU2ODc4ZGY3YTlhZjI3YmJhM2ViMWMwNmY0YjEwNGIzNDQzMDY2OGM2ZmNkMzFjNzhmZDM4NzFkY2JjZDVlZjdlNzQ3MGFhYzZmZjM5Mjk5ZWE3Mjc0NWJhNTNkMGE1MDhiMzc0YWQxMGJlYjkxMDAyNzMxODU2ZjJlMDQyYTk=",
+    "embeddableLaunchScript": false,
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "clientFramework": "react",
+    "clientTheme": "none",
+    "clientThemeVariant": "",
+    "creationTimestamp": 1596222836953,
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": false,
+    "blueprints": []
+  }
+}
