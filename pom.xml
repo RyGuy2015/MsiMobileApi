@@ -321,6 +321,17 @@
             <artifactId>spring-security-messaging</artifactId>
         </dependency>
         <!-- jhipster-needle-maven-add-dependency -->
+        <!-- https://mvnrepository.com/artifact/net.sf.jt400/jt400 -->
+        <dependency>
+            <groupId>net.sf.jt400</groupId>
+            <artifactId>jt400-jdk6</artifactId>
+            <version>9.5</version>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.10</version>
+        </dependency>
     </dependencies>
 
     <build>
