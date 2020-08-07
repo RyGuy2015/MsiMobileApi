@@ -1,0 +1,20 @@
+entity Delivery {
+	deliveryNumber String
+    deliveryStatus String
+    deliveryWarehouse String
+}
+
+entity Stop {
+	routeNumber Long
+	stopNumber Long
+    customerNumber1 Long
+    customerNumber2 Long
+    customerName String
+    customerAddress String
+	
+}
+
+relationship OneToMany {
+	Delivery to Stop{delivery}
+}
+

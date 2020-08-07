@@ -1,0 +1,36 @@
+{
+  "name": "Delivery",
+  "fields": [
+    {
+      "fieldName": "deliveryNumber",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "deliveryStatus",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "deliveryWarehouse",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "stop",
+      "otherEntityRelationshipName": "delivery",
+      "relationshipName": "stop"
+    }
+  ],
+  "changelogDate": "20200806165434",
+  "entityTableName": "delivery",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}
