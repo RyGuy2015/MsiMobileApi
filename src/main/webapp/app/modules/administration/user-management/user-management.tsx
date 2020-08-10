@@ -73,7 +73,7 @@ export const UserManagement = (props: IUserManagementProps) => {
         <thead>
           <tr>
             <th className="hand" onClick={sort('id')}>
-              ID
+              ID#
               <FontAwesomeIcon icon="sort" />
             </th>
             <th className="hand" onClick={sort('login')}>
