@@ -2,6 +2,31 @@ package com.dpslink.mobileapi.domain;
 
 public class UnparsedDelivery {
 
+    @Override
+    public String toString() {
+        return "UnparsedDelivery{" +
+            "status='" + status + '\'' +
+            ", warehouse='" + warehouse + '\'' +
+            ", deliverynumber='" + deliverynumber + '\'' +
+            ", route=" + route +
+            ", routestop=" + routestop +
+            ", customerpart1=" + customerpart1 +
+            ", customername='" + customername + '\'' +
+            ", addressline1='" + addressline1 + '\'' +
+            ", addressline2='" + addressline2 + '\'' +
+            ", city='" + city + '\'' +
+            ", state='" + state + '\'' +
+            ", zip='" + zip + '\'' +
+            ", overname='" + overname + '\'' +
+            ", overaddressline1='" + overaddressline1 + '\'' +
+            ", overaddressline2='" + overaddressline2 + '\'' +
+            ", overcity='" + overcity + '\'' +
+            ", overstate='" + overstate + '\'' +
+            ", overzip='" + overzip + '\'' +
+            ", customerpart2=" + customerpart2 +
+            '}';
+    }
+
     private String status;
     private String warehouse;
     private String deliverynumber;
