@@ -41,7 +41,7 @@ public class JdbcDeliveryImportService {
                 currentDelivery.setDeliveryStatus(rawDelivery.getStatus());
                 currentDelivery.setDeliveryWarehouse(rawDelivery.getWarehouse());
             }
-            currentStop =
+            currentStop.setStopNumber(rawDelivery.getRoutestop());
         }
 
         return parsedDeliveries;
