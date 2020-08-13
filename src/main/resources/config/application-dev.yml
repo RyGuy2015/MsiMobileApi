@@ -47,7 +47,7 @@ spring:
   jpa:
     # database-platform: org.hibernate.dialect.DB2400Dialect
     show-sql: true
-    #hibernate.ddl-auto: create
+    # hibernate.ddl-auto: create
   liquibase:
     # Remove 'faker' if you do not want the sample data to be loaded automatically
     contexts: dev

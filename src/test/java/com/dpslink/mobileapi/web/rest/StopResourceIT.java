@@ -29,23 +29,29 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @WithMockUser
 public class StopResourceIT {
 
-    private static final Long DEFAULT_ROUTE_NUMBER = 1L;
-    private static final Long UPDATED_ROUTE_NUMBER = 2L;
+    private static final Integer DEFAULT_ROUTE_NUMBER = 1;
+    private static final Integer UPDATED_ROUTE_NUMBER = 2;
 
-    private static final Long DEFAULT_STOP_NUMBER = 1L;
-    private static final Long UPDATED_STOP_NUMBER = 2L;
+    private static final Integer DEFAULT_STOP_NUMBER = 1;
+    private static final Integer UPDATED_STOP_NUMBER = 2;
 
-    private static final Long DEFAULT_CUSTOMER_NUMBER_1 = 1L;
-    private static final Long UPDATED_CUSTOMER_NUMBER_1 = 2L;
+    private static final Integer DEFAULT_SEQUENCE_NUMBER = 1;
+    private static final Integer UPDATED_SEQUENCE_NUMBER = 2;
 
-    private static final Long DEFAULT_CUSTOMER_NUMBER_2 = 1L;
-    private static final Long UPDATED_CUSTOMER_NUMBER_2 = 2L;
+    private static final Integer DEFAULT_CUSTOMER_NUMBER_1 = 1;
+    private static final Integer UPDATED_CUSTOMER_NUMBER_1 = 2;
+
+    private static final Integer DEFAULT_CUSTOMER_NUMBER_2 = 1;
+    private static final Integer UPDATED_CUSTOMER_NUMBER_2 = 2;
 
     private static final String DEFAULT_CUSTOMER_NAME = "AAAAAAAAAA";
     private static final String UPDATED_CUSTOMER_NAME = "BBBBBBBBBB";
 
     private static final String DEFAULT_CUSTOMER_ADDRESS = "AAAAAAAAAA";
     private static final String UPDATED_CUSTOMER_ADDRESS = "BBBBBBBBBB";
+
+    private static final String DEFAULT_STATUS = "AAAAAAAAAA";
+    private static final String UPDATED_STATUS = "BBBBBBBBBB";
 
     @Autowired
     private StopRepository stopRepository;
@@ -68,10 +74,12 @@ public class StopResourceIT {
         Stop stop = new Stop()
             .routeNumber(DEFAULT_ROUTE_NUMBER)
             .stopNumber(DEFAULT_STOP_NUMBER)
+            .sequenceNumber(DEFAULT_SEQUENCE_NUMBER)
             .customerNumber1(DEFAULT_CUSTOMER_NUMBER_1)
             .customerNumber2(DEFAULT_CUSTOMER_NUMBER_2)
             .customerName(DEFAULT_CUSTOMER_NAME)
-            .customerAddress(DEFAULT_CUSTOMER_ADDRESS);
+            .customerAddress(DEFAULT_CUSTOMER_ADDRESS)
+            .status(DEFAULT_STATUS);
         return stop;
     }
     /**
@@ -84,10 +92,12 @@ public class StopResourceIT {
         Stop stop = new Stop()
             .routeNumber(UPDATED_ROUTE_NUMBER)
             .stopNumber(UPDATED_STOP_NUMBER)
+            .sequenceNumber(UPDATED_SEQUENCE_NUMBER)
             .customerNumber1(UPDATED_CUSTOMER_NUMBER_1)
             .customerNumber2(UPDATED_CUSTOMER_NUMBER_2)
             .customerName(UPDATED_CUSTOMER_NAME)
-            .customerAddress(UPDATED_CUSTOMER_ADDRESS);
+            .customerAddress(UPDATED_CUSTOMER_ADDRESS)
+            .status(UPDATED_STATUS);
         return stop;
     }
 
@@ -112,10 +122,12 @@ public class StopResourceIT {
         Stop testStop = stopList.get(stopList.size() - 1);
         assertThat(testStop.getRouteNumber()).isEqualTo(DEFAULT_ROUTE_NUMBER);
         assertThat(testStop.getStopNumber()).isEqualTo(DEFAULT_STOP_NUMBER);
+        assertThat(testStop.getSequenceNumber()).isEqualTo(DEFAULT_SEQUENCE_NUMBER);
         assertThat(testStop.getCustomerNumber1()).isEqualTo(DEFAULT_CUSTOMER_NUMBER_1);
         assertThat(testStop.getCustomerNumber2()).isEqualTo(DEFAULT_CUSTOMER_NUMBER_2);
         assertThat(testStop.getCustomerName()).isEqualTo(DEFAULT_CUSTOMER_NAME);
         assertThat(testStop.getCustomerAddress()).isEqualTo(DEFAULT_CUSTOMER_ADDRESS);
+        assertThat(testStop.getStatus()).isEqualTo(DEFAULT_STATUS);
     }
 
     @Test
@@ -149,12 +161,14 @@ public class StopResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(stop.getId().intValue())))
-            .andExpect(jsonPath("$.[*].routeNumber").value(hasItem(DEFAULT_ROUTE_NUMBER.intValue())))
-            .andExpect(jsonPath("$.[*].stopNumber").value(hasItem(DEFAULT_STOP_NUMBER.intValue())))
-            .andExpect(jsonPath("$.[*].customerNumber1").value(hasItem(DEFAULT_CUSTOMER_NUMBER_1.intValue())))
-            .andExpect(jsonPath("$.[*].customerNumber2").value(hasItem(DEFAULT_CUSTOMER_NUMBER_2.intValue())))
+            .andExpect(jsonPath("$.[*].routeNumber").value(hasItem(DEFAULT_ROUTE_NUMBER)))
+            .andExpect(jsonPath("$.[*].stopNumber").value(hasItem(DEFAULT_STOP_NUMBER)))
+            .andExpect(jsonPath("$.[*].sequenceNumber").value(hasItem(DEFAULT_SEQUENCE_NUMBER)))
+            .andExpect(jsonPath("$.[*].customerNumber1").value(hasItem(DEFAULT_CUSTOMER_NUMBER_1)))
+            .andExpect(jsonPath("$.[*].customerNumber2").value(hasItem(DEFAULT_CUSTOMER_NUMBER_2)))
             .andExpect(jsonPath("$.[*].customerName").value(hasItem(DEFAULT_CUSTOMER_NAME)))
-            .andExpect(jsonPath("$.[*].customerAddress").value(hasItem(DEFAULT_CUSTOMER_ADDRESS)));
+            .andExpect(jsonPath("$.[*].customerAddress").value(hasItem(DEFAULT_CUSTOMER_ADDRESS)))
+            .andExpect(jsonPath("$.[*].status").value(hasItem(DEFAULT_STATUS)));
     }
     
     @Test
@@ -168,12 +182,14 @@ public class StopResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(stop.getId().intValue()))
-            .andExpect(jsonPath("$.routeNumber").value(DEFAULT_ROUTE_NUMBER.intValue()))
-            .andExpect(jsonPath("$.stopNumber").value(DEFAULT_STOP_NUMBER.intValue()))
-            .andExpect(jsonPath("$.customerNumber1").value(DEFAULT_CUSTOMER_NUMBER_1.intValue()))
-            .andExpect(jsonPath("$.customerNumber2").value(DEFAULT_CUSTOMER_NUMBER_2.intValue()))
+            .andExpect(jsonPath("$.routeNumber").value(DEFAULT_ROUTE_NUMBER))
+            .andExpect(jsonPath("$.stopNumber").value(DEFAULT_STOP_NUMBER))
+            .andExpect(jsonPath("$.sequenceNumber").value(DEFAULT_SEQUENCE_NUMBER))
+            .andExpect(jsonPath("$.customerNumber1").value(DEFAULT_CUSTOMER_NUMBER_1))
+            .andExpect(jsonPath("$.customerNumber2").value(DEFAULT_CUSTOMER_NUMBER_2))
             .andExpect(jsonPath("$.customerName").value(DEFAULT_CUSTOMER_NAME))
-            .andExpect(jsonPath("$.customerAddress").value(DEFAULT_CUSTOMER_ADDRESS));
+            .andExpect(jsonPath("$.customerAddress").value(DEFAULT_CUSTOMER_ADDRESS))
+            .andExpect(jsonPath("$.status").value(DEFAULT_STATUS));
     }
     @Test
     @Transactional
@@ -198,10 +214,12 @@ public class StopResourceIT {
         updatedStop
             .routeNumber(UPDATED_ROUTE_NUMBER)
             .stopNumber(UPDATED_STOP_NUMBER)
+            .sequenceNumber(UPDATED_SEQUENCE_NUMBER)
             .customerNumber1(UPDATED_CUSTOMER_NUMBER_1)
             .customerNumber2(UPDATED_CUSTOMER_NUMBER_2)
             .customerName(UPDATED_CUSTOMER_NAME)
-            .customerAddress(UPDATED_CUSTOMER_ADDRESS);
+            .customerAddress(UPDATED_CUSTOMER_ADDRESS)
+            .status(UPDATED_STATUS);
 
         restStopMockMvc.perform(put("/api/stops")
             .contentType(MediaType.APPLICATION_JSON)
@@ -214,10 +232,12 @@ public class StopResourceIT {
         Stop testStop = stopList.get(stopList.size() - 1);
         assertThat(testStop.getRouteNumber()).isEqualTo(UPDATED_ROUTE_NUMBER);
         assertThat(testStop.getStopNumber()).isEqualTo(UPDATED_STOP_NUMBER);
+        assertThat(testStop.getSequenceNumber()).isEqualTo(UPDATED_SEQUENCE_NUMBER);
         assertThat(testStop.getCustomerNumber1()).isEqualTo(UPDATED_CUSTOMER_NUMBER_1);
         assertThat(testStop.getCustomerNumber2()).isEqualTo(UPDATED_CUSTOMER_NUMBER_2);
         assertThat(testStop.getCustomerName()).isEqualTo(UPDATED_CUSTOMER_NAME);
         assertThat(testStop.getCustomerAddress()).isEqualTo(UPDATED_CUSTOMER_ADDRESS);
+        assertThat(testStop.getStatus()).isEqualTo(UPDATED_STATUS);
     }
 
     @Test

@@ -35,10 +35,12 @@ export const Stop = (props: IStopProps) => {
                 <th>ID</th>
                 <th>Route Number</th>
                 <th>Stop Number</th>
+                <th>Sequence Number</th>
                 <th>Customer Number 1</th>
                 <th>Customer Number 2</th>
                 <th>Customer Name</th>
                 <th>Customer Address</th>
+                <th>Status</th>
                 <th>Delivery</th>
                 <th />
               </tr>
@@ -53,10 +55,12 @@ export const Stop = (props: IStopProps) => {
                   </td>
                   <td>{stop.routeNumber}</td>
                   <td>{stop.stopNumber}</td>
+                  <td>{stop.sequenceNumber}</td>
                   <td>{stop.customerNumber1}</td>
                   <td>{stop.customerNumber2}</td>
                   <td>{stop.customerName}</td>
                   <td>{stop.customerAddress}</td>
+                  <td>{stop.status}</td>
                   <td>{stop.delivery ? <Link to={`delivery/${stop.delivery.id}`}>{stop.delivery.id}</Link> : ''}</td>
                   <td className="text-right">
                     <div className="btn-group flex-btn-group-container">

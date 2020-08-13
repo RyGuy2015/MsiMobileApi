@@ -34,6 +34,10 @@ export const StopDetail = (props: IStopDetailProps) => {
           </dt>
           <dd>{stopEntity.stopNumber}</dd>
           <dt>
+            <span id="sequenceNumber">Sequence Number</span>
+          </dt>
+          <dd>{stopEntity.sequenceNumber}</dd>
+          <dt>
             <span id="customerNumber1">Customer Number 1</span>
           </dt>
           <dd>{stopEntity.customerNumber1}</dd>
@@ -49,6 +53,10 @@ export const StopDetail = (props: IStopDetailProps) => {
             <span id="customerAddress">Customer Address</span>
           </dt>
           <dd>{stopEntity.customerAddress}</dd>
+          <dt>
+            <span id="status">Status</span>
+          </dt>
+          <dd>{stopEntity.status}</dd>
           <dt>Delivery</dt>
           <dd>{stopEntity.delivery ? stopEntity.delivery.id : ''}</dd>
         </dl>

@@ -24,22 +24,28 @@ public class Stop implements Serializable {
     private Long id;
 
     @Column(name = "route_number")
-    private Long routeNumber;
+    private Integer routeNumber;
 
     @Column(name = "stop_number")
-    private Long stopNumber;
+    private Integer stopNumber;
+
+    @Column(name = "sequence_number")
+    private Integer sequenceNumber;
 
     @Column(name = "customer_number_1")
-    private Long customerNumber1;
+    private Integer customerNumber1;
 
     @Column(name = "customer_number_2")
-    private Long customerNumber2;
+    private Integer customerNumber2;
 
     @Column(name = "customer_name")
     private String customerName;
 
     @Column(name = "customer_address")
     private String customerAddress;
+
+    @Column(name = "status")
+    private String status;
 
     @ManyToOne
     @JsonIgnoreProperties(value = "stops", allowSetters = true)
@@ -54,55 +60,68 @@ public class Stop implements Serializable {
         this.id = id;
     }
 
-    public Long getRouteNumber() {
+    public Integer getRouteNumber() {
         return routeNumber;
     }
 
-    public Stop routeNumber(Long routeNumber) {
+    public Stop routeNumber(Integer routeNumber) {
         this.routeNumber = routeNumber;
         return this;
     }
 
-    public void setRouteNumber(Long routeNumber) {
+    public void setRouteNumber(Integer routeNumber) {
         this.routeNumber = routeNumber;
     }
 
-    public Long getStopNumber() {
+    public Integer getStopNumber() {
         return stopNumber;
     }
 
-    public Stop stopNumber(Long stopNumber) {
+    public Stop stopNumber(Integer stopNumber) {
         this.stopNumber = stopNumber;
         return this;
     }
 
-    public void setStopNumber(Long stopNumber) {
+    public void setStopNumber(Integer stopNumber) {
         this.stopNumber = stopNumber;
     }
 
-    public Long getCustomerNumber1() {
+    public Integer getSequenceNumber() {
+        return sequenceNumber;
+    }
+
+    public Stop sequenceNumber(Integer sequenceNumber) {
+        this.sequenceNumber = sequenceNumber;
+        return this;
+    }
+
+    public void setSequenceNumber(Integer sequenceNumber) {
+        this.sequenceNumber = sequenceNumber;
+    }
+
+    public Integer getCustomerNumber1() {
         return customerNumber1;
     }
 
-    public Stop customerNumber1(Long customerNumber1) {
+    public Stop customerNumber1(Integer customerNumber1) {
         this.customerNumber1 = customerNumber1;
         return this;
     }
 
-    public void setCustomerNumber1(Long customerNumber1) {
+    public void setCustomerNumber1(Integer customerNumber1) {
         this.customerNumber1 = customerNumber1;
     }
 
-    public Long getCustomerNumber2() {
+    public Integer getCustomerNumber2() {
         return customerNumber2;
     }
 
-    public Stop customerNumber2(Long customerNumber2) {
+    public Stop customerNumber2(Integer customerNumber2) {
         this.customerNumber2 = customerNumber2;
         return this;
     }
 
-    public void setCustomerNumber2(Long customerNumber2) {
+    public void setCustomerNumber2(Integer customerNumber2) {
         this.customerNumber2 = customerNumber2;
     }
 
@@ -130,6 +149,19 @@ public class Stop implements Serializable {
 
     public void setCustomerAddress(String customerAddress) {
         this.customerAddress = customerAddress;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public Stop status(String status) {
+        this.status = status;
+        return this;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public Delivery getDelivery() {
@@ -169,10 +201,12 @@ public class Stop implements Serializable {
             "id=" + getId() +
             ", routeNumber=" + getRouteNumber() +
             ", stopNumber=" + getStopNumber() +
+            ", sequenceNumber=" + getSequenceNumber() +
             ", customerNumber1=" + getCustomerNumber1() +
             ", customerNumber2=" + getCustomerNumber2() +
             ", customerName='" + getCustomerName() + "'" +
             ", customerAddress='" + getCustomerAddress() + "'" +
+            ", status='" + getStatus() + "'" +
             "}";
     }
 }

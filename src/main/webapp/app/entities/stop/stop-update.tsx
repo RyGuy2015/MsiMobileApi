@@ -89,6 +89,12 @@ export const StopUpdate = (props: IStopUpdateProps) => {
                 <AvField id="stop-stopNumber" type="string" className="form-control" name="stopNumber" />
               </AvGroup>
               <AvGroup>
+                <Label id="sequenceNumberLabel" for="stop-sequenceNumber">
+                  Sequence Number
+                </Label>
+                <AvField id="stop-sequenceNumber" type="string" className="form-control" name="sequenceNumber" />
+              </AvGroup>
+              <AvGroup>
                 <Label id="customerNumber1Label" for="stop-customerNumber1">
                   Customer Number 1
                 </Label>
@@ -111,6 +117,12 @@ export const StopUpdate = (props: IStopUpdateProps) => {
                   Customer Address
                 </Label>
                 <AvField id="stop-customerAddress" type="text" name="customerAddress" />
+              </AvGroup>
+              <AvGroup>
+                <Label id="statusLabel" for="stop-status">
+                  Status
+                </Label>
+                <AvField id="stop-status" type="text" name="status" />
               </AvGroup>
               <AvGroup>
                 <Label for="stop-delivery">Delivery</Label>

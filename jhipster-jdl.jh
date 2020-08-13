@@ -5,12 +5,14 @@ entity Delivery {
 }
 
 entity Stop {
-	routeNumber Long
-	stopNumber Long
-    customerNumber1 Long
-    customerNumber2 Long
+	routeNumber Integer
+	stopNumber Integer
+    sequenceNumber Integer
+    customerNumber1 Integer
+    customerNumber2 Integer
     customerName String
     customerAddress String
+    status String
 	
 }
 
