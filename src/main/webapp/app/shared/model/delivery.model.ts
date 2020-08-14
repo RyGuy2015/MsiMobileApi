@@ -1,11 +1,11 @@
-import { IStop } from 'app/shared/model/stop.model';
+import { IDealerStop } from 'app/shared/model/dealer-stop.model';
 
 export interface IDelivery {
   id?: number;
   deliveryNumber?: string;
   deliveryStatus?: string;
   deliveryWarehouse?: string;
-  stops?: IStop[];
+  dealerstops?: IDealerStop[];
 }
 
 export const defaultValue: Readonly<IDelivery> = {};

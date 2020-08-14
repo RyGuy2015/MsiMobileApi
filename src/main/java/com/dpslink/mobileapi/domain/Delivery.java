@@ -35,7 +35,7 @@ public class Delivery implements Serializable {
 
     @OneToMany(mappedBy = "delivery")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    private Set<Stop> stops = new HashSet<>();
+    private Set<DealerStop> dealerstops = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
@@ -85,29 +85,29 @@ public class Delivery implements Serializable {
         this.deliveryWarehouse = deliveryWarehouse;
     }
 
-    public Set<Stop> getStops() {
-        return stops;
+    public Set<DealerStop> getDealerstops() {
+        return dealerstops;
     }
 
-    public Delivery stops(Set<Stop> stops) {
-        this.stops = stops;
+    public Delivery dealerstops(Set<DealerStop> dealerStops) {
+        this.dealerstops = dealerStops;
         return this;
     }
 
-    public Delivery addStop(Stop stop) {
-        this.stops.add(stop);
-        stop.setDelivery(this);
+    public Delivery addDealerstop(DealerStop dealerStop) {
+        this.dealerstops.add(dealerStop);
+        dealerStop.setDelivery(this);
         return this;
     }
 
-    public Delivery removeStop(Stop stop) {
-        this.stops.remove(stop);
-        stop.setDelivery(null);
+    public Delivery removeDealerstop(DealerStop dealerStop) {
+        this.dealerstops.remove(dealerStop);
+        dealerStop.setDelivery(null);
         return this;
     }
 
-    public void setStops(Set<Stop> stops) {
-        this.stops = stops;
+    public void setDealerstops(Set<DealerStop> dealerStops) {
+        this.dealerstops = dealerStops;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 

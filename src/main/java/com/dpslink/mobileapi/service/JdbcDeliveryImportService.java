@@ -1,12 +1,15 @@
 package com.dpslink.mobileapi.service;
 
+import com.dpslink.mobileapi.domain.DealerStop;
 import com.dpslink.mobileapi.domain.Delivery;
 import com.dpslink.mobileapi.domain.Stop;
 import com.dpslink.mobileapi.domain.UnparsedDelivery;
+import com.dpslink.mobileapi.repository.DealerStopRepository;
 import com.dpslink.mobileapi.repository.DeliveryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -14,6 +17,7 @@ import java.util.List;
 import java.util.Set;
 
 @Service
+@Transactional
 public class JdbcDeliveryImportService {
 
     @Autowired
@@ -21,6 +25,9 @@ public class JdbcDeliveryImportService {
 
     @Autowired
     DeliveryRepository deliveryRepository;
+
+    @Autowired
+    DealerStopRepository dealerStopRepository;
 //	private static final Logger log = Log
 
     public JdbcDeliveryImportService() {
@@ -28,10 +35,10 @@ public class JdbcDeliveryImportService {
     }
 
 
-    public void createMobileDeliveries(JdbcTemplate jdbcTemplate, DeliveryRepository deliveryRepository) {
+    public void createMobileDeliveries(JdbcTemplate jdbcTemplate, DeliveryRepository deliveryRepository, DealerStopRepository dealerStopRepository) {
         List<UnparsedDelivery> stops = getUnparsedDeliveries(jdbcTemplate);
-        List<Delivery> deliveries = parseDeliveriesAndStops(stops);
-        //addDeliveriesToDatabase(deliveries, deliveryRepository);
+        List<Delivery> deliveries = parseDeliveriesAndStops(stops, deliveryRepository, dealerStopRepository);
+//        addDeliveriesToDatabase(deliveries, deliveryRepository);
     }
 
     private void addDeliveriesToDatabase(List<Delivery> deliveries, DeliveryRepository deliveryRepository) {
@@ -39,23 +46,29 @@ public class JdbcDeliveryImportService {
     }
 
 
-    private List<Delivery> parseDeliveriesAndStops(List<UnparsedDelivery> rawDeliveries) {
+    private List<Delivery> parseDeliveriesAndStops(List<UnparsedDelivery> rawDeliveries, DeliveryRepository deliveryRepository, DealerStopRepository dealerStopRepository) {
         List<Delivery> parsedDeliveries = new ArrayList<>();
-        Delivery currentDelivery = new Delivery();
-        Stop currentStop = new Stop();
         Set<Stop> currentStops = new HashSet<>();
         String currentDeliveryNumber = "";
+        Delivery currentDelivery = new Delivery();
+        Boolean writeObject = false;
 
         //rawDeliveries.forEach(key->System.out.println(key));
 
         for(UnparsedDelivery rawDelivery: rawDeliveries) {
-            currentDelivery = resetDelivery(currentDelivery);
-            currentStop = resetStop(currentStop);
-
+            DealerStop currentStop = new DealerStop();
+//            System.out.println(rawDelivery);
             if(!rawDelivery.getDeliverynumber().equals(currentDeliveryNumber)) {
-                currentDelivery.setStops(currentStops);
-                parsedDeliveries.add(currentDelivery);
-                currentDelivery = resetDelivery(currentDelivery);
+                if(writeObject) {
+//                    currentDelivery.setStops(currentStops);
+//                    parsedDeliveries.add(currentDelivery);
+                    Delivery savedDelivery = deliveryRepository.save(currentDelivery);
+                    dealerStopRepository.saveAll(savedDelivery.getDealerstops());
+                    savedDelivery.getDealerstops().forEach(key->System.out.println(key));
+                }
+                writeObject = true;
+//                currentDelivery = resetDelivery(currentDelivery);
+                currentDelivery = new Delivery();
                 currentDeliveryNumber = rawDelivery.getDeliverynumber();
                 currentDelivery.setDeliveryNumber(rawDelivery.getDeliverynumber());
                 currentDelivery.setDeliveryStatus(rawDelivery.getStatus());
@@ -64,19 +77,25 @@ public class JdbcDeliveryImportService {
             currentStop.setStopNumber(rawDelivery.getRoutestop());
             currentStop.setRouteNumber(rawDelivery.getRoute());
             currentStop.setCustomerName(rawDelivery.getCustomername());
-            currentStop.setCustomerAddress(rawDelivery.getAddressline1() + " " + rawDelivery.getAddressline2() +
-                " " + rawDelivery.getCity() + "," + rawDelivery.getState() + " " + rawDelivery.getZip());
+            currentStop.setCustomerNumber1(rawDelivery.getCustomerpart1());
+            currentStop.setCustomerNumber2(rawDelivery.getCustomerpart2());
+            currentStop.setCustomerAddress(rawDelivery.getAddressline1().trim() + " " + rawDelivery.getAddressline2().trim() +
+                " " + rawDelivery.getCity().trim() + ", " + rawDelivery.getState() + " " + rawDelivery.getZip());
             currentStop.setSequenceNumber(rawDelivery.getRoutestop());
             currentStop.setStatus("Active");
-            currentStops.add(currentStop);
-            currentStop = resetStop(currentStop);
+//            currentStops.add(currentStop);
+            currentDelivery.getDealerstops().add(currentStop);
+//            currentStop = resetStop(currentStop);
+//            currentDelivery.getStops().forEach(key->System.out.println(key));
         }
 
         // catch the final loop of deliveries and stops
-        currentDelivery.setStops(currentStops);
-        parsedDeliveries.add(currentDelivery);
+//        currentDelivery.setStops(currentStops);
+//        parsedDeliveries.add(currentDelivery);
 
-        parsedDeliveries.forEach(key->System.out.println(key));
+//        currentStops.forEach(key->System.out.println(key));
+//        parsedDeliveries.forEach(key->System.out.println(key));
+
         return parsedDeliveries;
     }
 

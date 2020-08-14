@@ -4,7 +4,7 @@ entity Delivery {
     deliveryWarehouse String
 }
 
-entity Stop {
+entity DealerStop {
 	routeNumber Integer
 	stopNumber Integer
     sequenceNumber Integer
@@ -17,6 +17,6 @@ entity Stop {
 }
 
 relationship OneToMany {
-	Delivery to Stop{delivery}
+	Delivery{dealerstop} to DealerStop{delivery}
 }
 

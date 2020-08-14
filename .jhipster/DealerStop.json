@@ -1,0 +1,57 @@
+{
+  "name": "DealerStop",
+  "fields": [
+    {
+      "fieldName": "routeNumber",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "stopNumber",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "sequenceNumber",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "customerNumber1",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "customerNumber2",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "customerName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "customerAddress",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "delivery",
+      "otherEntityRelationshipName": "dealerstop",
+      "relationshipName": "delivery",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200813215434",
+  "entityTableName": "dealer_stop",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

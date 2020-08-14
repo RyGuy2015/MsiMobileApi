@@ -1,7 +1,9 @@
 package com.dpslink.mobileapi.service;
 
 import com.dpslink.mobileapi.domain.UnparsedDelivery;
+import com.dpslink.mobileapi.repository.DealerStopRepository;
 import com.dpslink.mobileapi.repository.DeliveryRepository;
+import com.dpslink.mobileapi.repository.StopRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +23,9 @@ public class JdbcDeliveryImportServiceTest {
 
     @Autowired
     DeliveryRepository deliveryRepository;
+
+    @Autowired
+    DealerStopRepository dealerStopRepository;
 
 
 
@@ -59,7 +64,7 @@ public class JdbcDeliveryImportServiceTest {
     @Test
     public void testDeliveryConversion() {
         JdbcDeliveryImportService importService = new JdbcDeliveryImportService();
-        importService.createMobileDeliveries(jdbcTemplate, deliveryRepository);
+        importService.createMobileDeliveries(jdbcTemplate, deliveryRepository, dealerStopRepository);
 //        importService.testUnparsedDeliveries(jdbcTemplate);
 
     }
