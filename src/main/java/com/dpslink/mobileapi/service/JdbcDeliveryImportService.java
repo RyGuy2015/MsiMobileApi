@@ -6,6 +6,7 @@ import com.dpslink.mobileapi.domain.Stop;
 import com.dpslink.mobileapi.domain.UnparsedDelivery;
 import com.dpslink.mobileapi.repository.DealerStopRepository;
 import com.dpslink.mobileapi.repository.DeliveryRepository;
+import com.sun.xml.bind.v2.TODO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
@@ -63,6 +64,8 @@ public class JdbcDeliveryImportService {
 //                    currentDelivery.setStops(currentStops);
 //                    parsedDeliveries.add(currentDelivery);
                     Delivery savedDelivery = deliveryRepository.save(currentDelivery);
+//TODO: add delivery id to dealerstop as foreign key
+//                    savedDelivery.getDealerstops().forEach(key->key.);
                     dealerStopRepository.saveAll(savedDelivery.getDealerstops());
                     savedDelivery.getDealerstops().forEach(key->System.out.println(key));
                 }

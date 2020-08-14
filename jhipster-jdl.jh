@@ -16,6 +16,16 @@ entity DealerStop {
 	
 }
 
+entity UserExtras {
+    customerNumber1 Integer
+    customerNumber2 Integer
+    SalesRepCode String
+}
+
+relationship ManyToOne {
+  UserExtras{user(login)} to User
+}
+
 relationship OneToMany {
 	Delivery{dealerstop} to DealerStop{delivery}
 }
