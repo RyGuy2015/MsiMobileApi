@@ -3,19 +3,23 @@
   "fields": [
     {
       "fieldName": "routeNumber",
-      "fieldType": "Long"
+      "fieldType": "Integer"
     },
     {
       "fieldName": "stopNumber",
-      "fieldType": "Long"
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "sequenceNumber",
+      "fieldType": "Integer"
     },
     {
       "fieldName": "customerNumber1",
-      "fieldType": "Long"
+      "fieldType": "Integer"
     },
     {
       "fieldName": "customerNumber2",
-      "fieldType": "Long"
+      "fieldType": "Integer"
     },
     {
       "fieldName": "customerName",
@@ -23,6 +27,10 @@
     },
     {
       "fieldName": "customerAddress",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "status",
       "fieldType": "String"
     }
   ],

@@ -61,7 +61,7 @@ export const DealerStop = (props: IDealerStopProps) => {
                   <td>{dealerStop.customerName}</td>
                   <td>{dealerStop.customerAddress}</td>
                   <td>{dealerStop.status}</td>
-                  <td>{dealerStop.delivery ? <Link to={`delivery/${dealerStop.delivery.id}`}>{dealerStop.delivery.id}</Link> : ''}</td>
+                  <td>{dealerStop.delivery ? <Link to={`delivery/${dealerStop.delivery.id}`}>{dealerStop.delivery.deliveryNumber}</Link> : ''}</td>
                   <td className="text-right">
                     <div className="btn-group flex-btn-group-container">
                       <Button tag={Link} to={`${match.url}/${dealerStop.id}`} color="info" size="sm">

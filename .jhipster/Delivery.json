@@ -17,9 +17,9 @@
   "relationships": [
     {
       "relationshipType": "one-to-many",
-      "otherEntityName": "stop",
+      "otherEntityName": "dealerStop",
       "otherEntityRelationshipName": "delivery",
-      "relationshipName": "stop"
+      "relationshipName": "dealerstop"
     }
   ],
   "changelogDate": "20200806165434",

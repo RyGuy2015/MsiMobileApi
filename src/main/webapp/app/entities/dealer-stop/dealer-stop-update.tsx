@@ -131,7 +131,7 @@ export const DealerStopUpdate = (props: IDealerStopUpdateProps) => {
                   {deliveries
                     ? deliveries.map(otherEntity => (
                         <option value={otherEntity.id} key={otherEntity.id}>
-                          {otherEntity.id}
+                          {otherEntity.deliveryNumber}
                         </option>
                       ))
                     : null}
