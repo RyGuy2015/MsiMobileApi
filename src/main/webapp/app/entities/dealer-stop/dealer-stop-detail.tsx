@@ -38,6 +38,10 @@ export const DealerStopDetail = (props: IDealerStopDetailProps) => {
           </dt>
           <dd>{dealerStopEntity.sequenceNumber}</dd>
           <dt>
+            <span id="salesRepCode">Sales Rep Code</span>
+          </dt>
+          <dd>{dealerStopEntity.salesRepCode}</dd>
+          <dt>
             <span id="customerNumber1">Customer Number 1</span>
           </dt>
           <dd>{dealerStopEntity.customerNumber1}</dd>

@@ -38,6 +38,9 @@ public class DealerStopResourceIT {
     private static final Integer DEFAULT_SEQUENCE_NUMBER = 1;
     private static final Integer UPDATED_SEQUENCE_NUMBER = 2;
 
+    private static final String DEFAULT_SALES_REP_CODE = "AAAAAAAAAA";
+    private static final String UPDATED_SALES_REP_CODE = "BBBBBBBBBB";
+
     private static final Integer DEFAULT_CUSTOMER_NUMBER_1 = 1;
     private static final Integer UPDATED_CUSTOMER_NUMBER_1 = 2;
 
@@ -75,6 +78,7 @@ public class DealerStopResourceIT {
             .routeNumber(DEFAULT_ROUTE_NUMBER)
             .stopNumber(DEFAULT_STOP_NUMBER)
             .sequenceNumber(DEFAULT_SEQUENCE_NUMBER)
+            .salesRepCode(DEFAULT_SALES_REP_CODE)
             .customerNumber1(DEFAULT_CUSTOMER_NUMBER_1)
             .customerNumber2(DEFAULT_CUSTOMER_NUMBER_2)
             .customerName(DEFAULT_CUSTOMER_NAME)
@@ -93,6 +97,7 @@ public class DealerStopResourceIT {
             .routeNumber(UPDATED_ROUTE_NUMBER)
             .stopNumber(UPDATED_STOP_NUMBER)
             .sequenceNumber(UPDATED_SEQUENCE_NUMBER)
+            .salesRepCode(UPDATED_SALES_REP_CODE)
             .customerNumber1(UPDATED_CUSTOMER_NUMBER_1)
             .customerNumber2(UPDATED_CUSTOMER_NUMBER_2)
             .customerName(UPDATED_CUSTOMER_NAME)
@@ -123,6 +128,7 @@ public class DealerStopResourceIT {
         assertThat(testDealerStop.getRouteNumber()).isEqualTo(DEFAULT_ROUTE_NUMBER);
         assertThat(testDealerStop.getStopNumber()).isEqualTo(DEFAULT_STOP_NUMBER);
         assertThat(testDealerStop.getSequenceNumber()).isEqualTo(DEFAULT_SEQUENCE_NUMBER);
+        assertThat(testDealerStop.getSalesRepCode()).isEqualTo(DEFAULT_SALES_REP_CODE);
         assertThat(testDealerStop.getCustomerNumber1()).isEqualTo(DEFAULT_CUSTOMER_NUMBER_1);
         assertThat(testDealerStop.getCustomerNumber2()).isEqualTo(DEFAULT_CUSTOMER_NUMBER_2);
         assertThat(testDealerStop.getCustomerName()).isEqualTo(DEFAULT_CUSTOMER_NAME);
@@ -164,6 +170,7 @@ public class DealerStopResourceIT {
             .andExpect(jsonPath("$.[*].routeNumber").value(hasItem(DEFAULT_ROUTE_NUMBER)))
             .andExpect(jsonPath("$.[*].stopNumber").value(hasItem(DEFAULT_STOP_NUMBER)))
             .andExpect(jsonPath("$.[*].sequenceNumber").value(hasItem(DEFAULT_SEQUENCE_NUMBER)))
+            .andExpect(jsonPath("$.[*].salesRepCode").value(hasItem(DEFAULT_SALES_REP_CODE)))
             .andExpect(jsonPath("$.[*].customerNumber1").value(hasItem(DEFAULT_CUSTOMER_NUMBER_1)))
             .andExpect(jsonPath("$.[*].customerNumber2").value(hasItem(DEFAULT_CUSTOMER_NUMBER_2)))
             .andExpect(jsonPath("$.[*].customerName").value(hasItem(DEFAULT_CUSTOMER_NAME)))
@@ -185,6 +192,7 @@ public class DealerStopResourceIT {
             .andExpect(jsonPath("$.routeNumber").value(DEFAULT_ROUTE_NUMBER))
             .andExpect(jsonPath("$.stopNumber").value(DEFAULT_STOP_NUMBER))
             .andExpect(jsonPath("$.sequenceNumber").value(DEFAULT_SEQUENCE_NUMBER))
+            .andExpect(jsonPath("$.salesRepCode").value(DEFAULT_SALES_REP_CODE))
             .andExpect(jsonPath("$.customerNumber1").value(DEFAULT_CUSTOMER_NUMBER_1))
             .andExpect(jsonPath("$.customerNumber2").value(DEFAULT_CUSTOMER_NUMBER_2))
             .andExpect(jsonPath("$.customerName").value(DEFAULT_CUSTOMER_NAME))
@@ -215,6 +223,7 @@ public class DealerStopResourceIT {
             .routeNumber(UPDATED_ROUTE_NUMBER)
             .stopNumber(UPDATED_STOP_NUMBER)
             .sequenceNumber(UPDATED_SEQUENCE_NUMBER)
+            .salesRepCode(UPDATED_SALES_REP_CODE)
             .customerNumber1(UPDATED_CUSTOMER_NUMBER_1)
             .customerNumber2(UPDATED_CUSTOMER_NUMBER_2)
             .customerName(UPDATED_CUSTOMER_NAME)
@@ -233,6 +242,7 @@ public class DealerStopResourceIT {
         assertThat(testDealerStop.getRouteNumber()).isEqualTo(UPDATED_ROUTE_NUMBER);
         assertThat(testDealerStop.getStopNumber()).isEqualTo(UPDATED_STOP_NUMBER);
         assertThat(testDealerStop.getSequenceNumber()).isEqualTo(UPDATED_SEQUENCE_NUMBER);
+        assertThat(testDealerStop.getSalesRepCode()).isEqualTo(UPDATED_SALES_REP_CODE);
         assertThat(testDealerStop.getCustomerNumber1()).isEqualTo(UPDATED_CUSTOMER_NUMBER_1);
         assertThat(testDealerStop.getCustomerNumber2()).isEqualTo(UPDATED_CUSTOMER_NUMBER_2);
         assertThat(testDealerStop.getCustomerName()).isEqualTo(UPDATED_CUSTOMER_NAME);

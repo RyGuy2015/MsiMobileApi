@@ -8,6 +8,7 @@ entity DealerStop {
 	routeNumber Integer
 	stopNumber Integer
     sequenceNumber Integer
+    salesRepCode String
     customerNumber1 Integer
     customerNumber2 Integer
     customerName String

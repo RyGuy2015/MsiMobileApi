@@ -17,9 +17,11 @@
     <include file="config/liquibase/changelog/20200806165434_added_entity_Delivery.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20200806165534_added_entity_Stop.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20200813215434_added_entity_DealerStop.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200814124250_added_entity_UserExtras.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
     <include file="config/liquibase/changelog/20200806165534_added_entity_constraints_Stop.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20200813215434_added_entity_constraints_DealerStop.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200814124250_added_entity_constraints_UserExtras.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
     <!-- jhipster-needle-liquibase-add-incremental-changelog - JHipster will add incremental liquibase changelogs here -->
 </databaseChangeLog>

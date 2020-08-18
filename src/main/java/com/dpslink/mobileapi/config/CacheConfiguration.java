@@ -53,6 +53,7 @@ public class CacheConfiguration {
             createCache(cm, com.dpslink.mobileapi.domain.Stop.class.getName());
             createCache(cm, com.dpslink.mobileapi.domain.Delivery.class.getName() + ".dealerstops");
             createCache(cm, com.dpslink.mobileapi.domain.DealerStop.class.getName());
+            createCache(cm, com.dpslink.mobileapi.domain.UserExtras.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

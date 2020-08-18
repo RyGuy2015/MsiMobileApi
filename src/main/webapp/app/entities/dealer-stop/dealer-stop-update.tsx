@@ -95,6 +95,12 @@ export const DealerStopUpdate = (props: IDealerStopUpdateProps) => {
                 <AvField id="dealer-stop-sequenceNumber" type="string" className="form-control" name="sequenceNumber" />
               </AvGroup>
               <AvGroup>
+                <Label id="salesRepCodeLabel" for="dealer-stop-salesRepCode">
+                  Sales Rep Code
+                </Label>
+                <AvField id="dealer-stop-salesRepCode" type="text" name="salesRepCode" />
+              </AvGroup>
+              <AvGroup>
                 <Label id="customerNumber1Label" for="dealer-stop-customerNumber1">
                   Customer Number 1
                 </Label>
@@ -131,7 +137,7 @@ export const DealerStopUpdate = (props: IDealerStopUpdateProps) => {
                   {deliveries
                     ? deliveries.map(otherEntity => (
                         <option value={otherEntity.id} key={otherEntity.id}>
-                          {otherEntity.deliveryNumber}
+                          {otherEntity.id}
                         </option>
                       ))
                     : null}

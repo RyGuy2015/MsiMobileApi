@@ -23,6 +23,10 @@ import stop, {
 import dealerStop, {
   DealerStopState
 } from 'app/entities/dealer-stop/dealer-stop.reducer';
+// prettier-ignore
+import userExtras, {
+  UserExtrasState
+} from 'app/entities/user-extras/user-extras.reducer';
 /* jhipster-needle-add-reducer-import - JHipster will add reducer here */
 
 export interface IRootState {
@@ -38,6 +42,7 @@ export interface IRootState {
   readonly delivery: DeliveryState;
   readonly stop: StopState;
   readonly dealerStop: DealerStopState;
+  readonly userExtras: UserExtrasState;
   /* jhipster-needle-add-reducer-type - JHipster will add reducer type here */
   readonly loadingBar: any;
 }
@@ -55,6 +60,7 @@ const rootReducer = combineReducers<IRootState>({
   delivery,
   stop,
   dealerStop,
+  userExtras,
   /* jhipster-needle-add-reducer-combine - JHipster will add reducer here */
   loadingBar,
 });

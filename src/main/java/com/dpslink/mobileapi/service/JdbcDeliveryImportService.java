@@ -65,7 +65,7 @@ public class JdbcDeliveryImportService {
 //                    parsedDeliveries.add(currentDelivery);
                     Delivery savedDelivery = deliveryRepository.save(currentDelivery);
 //TODO: add delivery id to dealerstop as foreign key
-//                    savedDelivery.getDealerstops().forEach(key->key.);
+//                    savedDelivery.getDealerstops().forEach();
                     dealerStopRepository.saveAll(savedDelivery.getDealerstops());
                     savedDelivery.getDealerstops().forEach(key->System.out.println(key));
                 }
@@ -79,6 +79,7 @@ public class JdbcDeliveryImportService {
             }
             currentStop.setStopNumber(rawDelivery.getRoutestop());
             currentStop.setRouteNumber(rawDelivery.getRoute());
+            currentStop.setSalesRepCode(rawDelivery.getSalesrepcode());
             currentStop.setCustomerName(rawDelivery.getCustomername());
             currentStop.setCustomerNumber1(rawDelivery.getCustomerpart1());
             currentStop.setCustomerNumber2(rawDelivery.getCustomerpart2());
@@ -126,8 +127,8 @@ public class JdbcDeliveryImportService {
         List<UnparsedDelivery> stops = new ArrayList<>(jdbcTemplate.query(
             "SELECT * FROM logistics", new Object[]{},
             (rs, rowNum) -> new UnparsedDelivery(rs.getString("status"), rs.getString("warehouse"), rs.getString("deliverynumber"),
-                rs.getInt("route"), rs.getInt("routestop"), rs.getInt("customerpart1"), rs.getInt("customerpart2"),
-                rs.getString("customername"), rs.getString("addressline1"), rs.getString("addressline2"), rs.getString("city"),
+                rs.getInt("route"), rs.getInt("routestop"), rs.getString("salesrepcode"), rs.getInt("customerpart1"),
+                rs.getInt("customerpart2"), rs.getString("customername"), rs.getString("addressline1"), rs.getString("addressline2"), rs.getString("city"),
                 rs.getString("state"), rs.getString("zip"), rs.getString("overname"), rs.getString("overaddressline1"),
                 rs.getString("overaddressline2"), rs.getString("overcity"), rs.getString("overstate"), rs.getString("overzip"))));
         for (UnparsedDelivery stop : stops) {

@@ -36,6 +36,7 @@ export const DealerStop = (props: IDealerStopProps) => {
                 <th>Route Number</th>
                 <th>Stop Number</th>
                 <th>Sequence Number</th>
+                <th>Sales Rep Code</th>
                 <th>Customer Number 1</th>
                 <th>Customer Number 2</th>
                 <th>Customer Name</th>
@@ -56,12 +57,13 @@ export const DealerStop = (props: IDealerStopProps) => {
                   <td>{dealerStop.routeNumber}</td>
                   <td>{dealerStop.stopNumber}</td>
                   <td>{dealerStop.sequenceNumber}</td>
+                  <td>{dealerStop.salesRepCode}</td>
                   <td>{dealerStop.customerNumber1}</td>
                   <td>{dealerStop.customerNumber2}</td>
                   <td>{dealerStop.customerName}</td>
                   <td>{dealerStop.customerAddress}</td>
                   <td>{dealerStop.status}</td>
-                  <td>{dealerStop.delivery ? <Link to={`delivery/${dealerStop.delivery.id}`}>{dealerStop.delivery.deliveryNumber}</Link> : ''}</td>
+                  <td>{dealerStop.delivery ? <Link to={`delivery/${dealerStop.delivery.id}`}>{dealerStop.delivery.id}</Link> : ''}</td>
                   <td className="text-right">
                     <div className="btn-group flex-btn-group-container">
                       <Button tag={Link} to={`${match.url}/${dealerStop.id}`} color="info" size="sm">

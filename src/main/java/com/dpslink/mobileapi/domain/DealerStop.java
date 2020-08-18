@@ -32,6 +32,9 @@ public class DealerStop implements Serializable {
     @Column(name = "sequence_number")
     private Integer sequenceNumber;
 
+    @Column(name = "sales_rep_code")
+    private String salesRepCode;
+
     @Column(name = "customer_number_1")
     private Integer customerNumber1;
 
@@ -49,7 +52,6 @@ public class DealerStop implements Serializable {
 
     @ManyToOne
     @JsonIgnoreProperties(value = "dealerstops", allowSetters = true)
-    @JoinColumn(name = "delivery_id")
     private Delivery delivery;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
@@ -98,6 +100,19 @@ public class DealerStop implements Serializable {
 
     public void setSequenceNumber(Integer sequenceNumber) {
         this.sequenceNumber = sequenceNumber;
+    }
+
+    public String getSalesRepCode() {
+        return salesRepCode;
+    }
+
+    public DealerStop salesRepCode(String salesRepCode) {
+        this.salesRepCode = salesRepCode;
+        return this;
+    }
+
+    public void setSalesRepCode(String salesRepCode) {
+        this.salesRepCode = salesRepCode;
     }
 
     public Integer getCustomerNumber1() {
@@ -203,6 +218,7 @@ public class DealerStop implements Serializable {
             ", routeNumber=" + getRouteNumber() +
             ", stopNumber=" + getStopNumber() +
             ", sequenceNumber=" + getSequenceNumber() +
+            ", salesRepCode='" + getSalesRepCode() + "'" +
             ", customerNumber1=" + getCustomerNumber1() +
             ", customerNumber2=" + getCustomerNumber2() +
             ", customerName='" + getCustomerName() + "'" +

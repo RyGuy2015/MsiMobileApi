@@ -5,6 +5,7 @@ export interface IDealerStop {
   routeNumber?: number;
   stopNumber?: number;
   sequenceNumber?: number;
+  salesRepCode?: string;
   customerNumber1?: number;
   customerNumber2?: number;
   customerName?: string;

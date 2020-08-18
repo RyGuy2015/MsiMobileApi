@@ -10,6 +10,7 @@ public class UnparsedDelivery {
             ", deliverynumber='" + deliverynumber + '\'' +
             ", route=" + route +
             ", routestop=" + routestop +
+            ", salesrepcode=" + salesrepcode +
             ", customerpart1=" + customerpart1 +
             ", customername='" + customername + '\'' +
             ", addressline1='" + addressline1 + '\'' +
@@ -32,6 +33,16 @@ public class UnparsedDelivery {
     private String deliverynumber;
     private Integer route;
     private Integer routestop;
+
+    public String getSalesrepcode() {
+        return salesrepcode;
+    }
+
+    public void setSalesrepcode(String salesrepcode) {
+        this.salesrepcode = salesrepcode;
+    }
+
+    private String salesrepcode;
     private Integer customerpart1;
     private String customername;
     private String addressline1;
@@ -46,12 +57,13 @@ public class UnparsedDelivery {
     private String overstate;
     private String overzip;
 
-    public UnparsedDelivery(String status, String warehouse, String deliverynumber, Integer route, Integer routestop, Integer customerpart1, Integer customerpart2, String customername, String addressline1, String addressline2, String city, String state, String zip, String overname, String overaddressline1, String overaddressline2, String overcity, String overstate, String overzip) {
+    public UnparsedDelivery(String status, String warehouse, String deliverynumber, Integer route, Integer routestop, String salesrepcode, Integer customerpart1, Integer customerpart2, String customername, String addressline1, String addressline2, String city, String state, String zip, String overname, String overaddressline1, String overaddressline2, String overcity, String overstate, String overzip) {
         this.status = status;
         this.warehouse = warehouse;
         this.deliverynumber = deliverynumber;
         this.route = route;
         this.routestop = routestop;
+        this.salesrepcode = salesrepcode;
         this.customerpart1 = customerpart1;
         this.customerpart2 = customerpart2;
         this.customername = customername;

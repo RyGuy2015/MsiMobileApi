@@ -78,16 +78,16 @@ export const DeliveryUpdate = (props: IDeliveryUpdateProps) => {
                 <AvField id="delivery-deliveryNumber" type="text" name="deliveryNumber" />
               </AvGroup>
               <AvGroup>
-                <Label id="deliveryStatusLabel" for="delivery-deliveryStatus">
-                  Delivery Status
-                </Label>
-                <AvField id="delivery-deliveryStatus" type="text" name="deliveryStatus" />
-              </AvGroup>
-              <AvGroup>
                 <Label id="deliveryWarehouseLabel" for="delivery-deliveryWarehouse">
                   Delivery Warehouse
                 </Label>
                 <AvField id="delivery-deliveryWarehouse" type="text" name="deliveryWarehouse" />
+              </AvGroup>
+              <AvGroup>
+                <Label id="deliveryStatusLabel" for="delivery-deliveryStatus">
+                  Delivery Status
+                </Label>
+                <AvField id="delivery-deliveryStatus" type="text" name="deliveryStatus" />
               </AvGroup>
               <Button tag={Link} id="cancel-save" to="/delivery" replace color="info">
                 <FontAwesomeIcon icon="arrow-left" />
