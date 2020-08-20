@@ -34,8 +34,8 @@ export const Delivery = (props: IDeliveryProps) => {
               <tr>
                 <th>ID</th>
                 <th>Delivery Number</th>
-                <th>Delivery Status</th>
                 <th>Delivery Warehouse</th>
+                <th>Delivery Status</th>
                 <th />
               </tr>
             </thead>
@@ -48,8 +48,8 @@ export const Delivery = (props: IDeliveryProps) => {
                     </Button>
                   </td>
                   <td>{delivery.deliveryNumber}</td>
-                  <td>{delivery.deliveryStatus}</td>
                   <td>{delivery.deliveryWarehouse}</td>
+                  <td>{delivery.deliveryStatus}</td>
                   <td className="text-right">
                     <div className="btn-group flex-btn-group-container">
                       <Button tag={Link} to={`${match.url}/${delivery.id}`} color="info" size="sm">

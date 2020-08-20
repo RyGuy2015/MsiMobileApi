@@ -51,7 +51,7 @@ export const UserExtras = (props: IUserExtrasProps) => {
                   <td>{userExtras.customerNumber1}</td>
                   <td>{userExtras.customerNumber2}</td>
                   <td>{userExtras.salesRepCode}</td>
-                  <td>{userExtras.user ? userExtras.user.login : ''}</td>
+                  <td>{userExtras.user ? userExtras.user.id : ''}</td>
                   <td className="text-right">
                     <div className="btn-group flex-btn-group-container">
                       <Button tag={Link} to={`${match.url}/${userExtras.id}`} color="info" size="sm">

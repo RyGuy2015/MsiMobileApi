@@ -21,10 +21,11 @@ entity UserExtras {
     customerNumber1 Integer
     customerNumber2 Integer
     SalesRepCode String
+    phone Integer
 }
 
-relationship ManyToOne {
-  UserExtras{user(login)} to User
+relationship OneToOne {
+  UserExtras{user} to User
 }
 
 relationship OneToMany {

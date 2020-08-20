@@ -1,6 +1,5 @@
 package com.dpslink.mobileapi.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -32,8 +31,8 @@ public class UserExtras implements Serializable {
     @Column(name = "sales_rep_code")
     private String salesRepCode;
 
-    @ManyToOne
-    @JsonIgnoreProperties(value = "userExtras", allowSetters = true)
+    @OneToOne
+    @JoinColumn(unique = true)
     private User user;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here

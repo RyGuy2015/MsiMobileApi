@@ -38,7 +38,7 @@ export const UserExtrasDetail = (props: IUserExtrasDetailProps) => {
           </dt>
           <dd>{userExtrasEntity.salesRepCode}</dd>
           <dt>User</dt>
-          <dd>{userExtrasEntity.user ? userExtrasEntity.user.login : ''}</dd>
+          <dd>{userExtrasEntity.user ? userExtrasEntity.user.id : ''}</dd>
         </dl>
         <Button tag={Link} to="/user-extras" replace color="info">
           <FontAwesomeIcon icon="arrow-left" /> <span className="d-none d-md-inline">Back</span>
