@@ -131,13 +131,13 @@ export const DealerStopUpdate = (props: IDealerStopUpdateProps) => {
                 <AvField id="dealer-stop-status" type="text" name="status" />
               </AvGroup>
               <AvGroup>
-                <Label for="dealer-stop-delivery">Delivery</Label>
+                <Label for="dealer-stop-delivery">Delivery ID</Label>
                 <AvInput id="dealer-stop-delivery" type="select" className="form-control" name="delivery.id">
                   <option value="" key="0" />
                   {deliveries
                     ? deliveries.map(otherEntity => (
                         <option value={otherEntity.id} key={otherEntity.id}>
-                          {otherEntity.id}
+                          {otherEntity.deliveryNumber}
                         </option>
                       ))
                     : null}

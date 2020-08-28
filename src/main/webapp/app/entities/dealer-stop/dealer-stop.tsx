@@ -32,23 +32,25 @@ export const DealerStop = (props: IDealerStopProps) => {
           <Table responsive>
             <thead>
               <tr>
-                <th>ID</th>
-                <th>Route Number</th>
-                <th>Stop Number</th>
-                <th>Sequence Number</th>
-                <th>Sales Rep Code</th>
-                <th>Customer Number 1</th>
-                <th>Customer Number 2</th>
+                <th>Delivery ID</th>
+                <th>Internal ID</th>
+                <th>Route #</th>
+                <th>Stop #</th>
+                <th>Seq. #</th>
+                <th>SR Code</th>
+                <th>Cust# 1</th>
+                <th>Cust# 2</th>
                 <th>Customer Name</th>
                 <th>Customer Address</th>
                 <th>Status</th>
-                <th>Delivery</th>
+                {/*<th>Delivery ID</th>*/}
                 <th />
               </tr>
             </thead>
             <tbody>
               {dealerStopList.map((dealerStop, i) => (
                 <tr key={`entity-${i}`}>
+                  <td>{dealerStop.delivery ? <Link to={`delivery/${dealerStop.delivery.id}`}>{dealerStop.delivery.deliveryNumber}</Link> : ''}</td>
                   <td>
                     <Button tag={Link} to={`${match.url}/${dealerStop.id}`} color="link" size="sm">
                       {dealerStop.id}
@@ -63,7 +65,7 @@ export const DealerStop = (props: IDealerStopProps) => {
                   <td>{dealerStop.customerName}</td>
                   <td>{dealerStop.customerAddress}</td>
                   <td>{dealerStop.status}</td>
-                  <td>{dealerStop.delivery ? <Link to={`delivery/${dealerStop.delivery.id}`}>{dealerStop.delivery.id}</Link> : ''}</td>
+                  {/*<td>{dealerStop.delivery ? <Link to={`delivery/${dealerStop.delivery.id}`}>{dealerStop.delivery.deliveryNumber}</Link> : ''}</td>*/}
                   <td className="text-right">
                     <div className="btn-group flex-btn-group-container">
                       <Button tag={Link} to={`${match.url}/${dealerStop.id}`} color="info" size="sm">

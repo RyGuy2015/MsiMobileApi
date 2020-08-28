@@ -32,9 +32,10 @@ export const Delivery = (props: IDeliveryProps) => {
           <Table responsive>
             <thead>
               <tr>
-                <th>ID</th>
-                <th>Delivery Number</th>
+                <th>Internal ID</th>
+                <th>Delivery ID</th>
                 <th>Delivery Warehouse</th>
+                <th>Delivery Notes</th>
                 <th>Delivery Status</th>
                 <th />
               </tr>
@@ -49,6 +50,7 @@ export const Delivery = (props: IDeliveryProps) => {
                   </td>
                   <td>{delivery.deliveryNumber}</td>
                   <td>{delivery.deliveryWarehouse}</td>
+                  <td> </td>
                   <td>{delivery.deliveryStatus}</td>
                   <td className="text-right">
                     <div className="btn-group flex-btn-group-container">

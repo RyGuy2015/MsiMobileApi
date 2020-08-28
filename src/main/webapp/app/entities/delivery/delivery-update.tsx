@@ -67,13 +67,13 @@ export const DeliveryUpdate = (props: IDeliveryUpdateProps) => {
             <AvForm model={isNew ? {} : deliveryEntity} onSubmit={saveEntity}>
               {!isNew ? (
                 <AvGroup>
-                  <Label for="delivery-id">ID</Label>
+                  <Label for="delivery-id">Internal ID</Label>
                   <AvInput id="delivery-id" type="text" className="form-control" name="id" required readOnly />
                 </AvGroup>
               ) : null}
               <AvGroup>
                 <Label id="deliveryNumberLabel" for="delivery-deliveryNumber">
-                  Delivery Number
+                  Delivery ID
                 </Label>
                 <AvField id="delivery-deliveryNumber" type="text" name="deliveryNumber" />
               </AvGroup>
