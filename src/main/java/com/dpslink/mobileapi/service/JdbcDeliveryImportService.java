@@ -65,7 +65,7 @@ public class JdbcDeliveryImportService {
 //                    parsedDeliveries.add(currentDelivery);
                     Delivery savedDelivery = deliveryRepository.save(currentDelivery);
 //TODO: add delivery id to dealerstop as foreign key
-//                    savedDelivery.getDealerstops().forEach();
+                    savedDelivery.getDealerstops().forEach(key->key.setDelivery(savedDelivery));
                     dealerStopRepository.saveAll(savedDelivery.getDealerstops());
                     savedDelivery.getDealerstops().forEach(key->System.out.println(key));
                 }

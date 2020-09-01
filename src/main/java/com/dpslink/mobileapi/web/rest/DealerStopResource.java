@@ -104,6 +104,47 @@ public class DealerStopResource {
     }
 
     /**
+     * {@code GET  /dealer-stops/sales-rep/:salesRepCode} : get the sales reps dealer stops.
+     *
+     * @param salesRepCode the sales rep code of the dealerStops to retrieve.
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the dealerStop, or with status {@code 404 (Not Found)}.
+     */
+    @GetMapping("/dealer-stops/sales-rep/{salesRepCode}")
+    public ResponseEntity<DealerStop> getDealerStopBySalesRep(@PathVariable String salesRepCode) {
+        log.debug("REST request to get DealerStop : {}", salesRepCode);
+        Optional<DealerStop> dealerStop = dealerStopRepository.findBySalesRepCode(salesRepCode);
+        return ResponseUtil.wrapOrNotFound(dealerStop);
+    }
+
+    /**
+     * {@code GET  /dealer-stops/delivery-id/:deliveryId} : get the delivery dealer stops.
+     *
+     * @param deliveryId the sales rep code of the dealerStops to retrieve.
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the dealerStop, or with status {@code 404 (Not Found)}.
+     */
+    @GetMapping("/dealer-stops/delivery-id/{deliveryId}")
+    public List<DealerStop> getDealerStopByDeliveryId(@PathVariable Long deliveryId) {
+        log.debug("REST request to get DealerStop by delivery id : {}", deliveryId);
+        List<DealerStop> dealerStop = dealerStopRepository.findByCurrentDelivery(deliveryId);
+//        return ResponseUtil.wrapOrNotFound(dealerStop);
+        return dealerStop;
+    }
+
+    /**
+     * {@code GET  /dealer-stops/customer/:customerNumber1/:customerNumber2} : get the "customer" dealer stops.
+     *
+     * @param customerNumber1 part one of the customer number associated with the stop.
+     * @param customerNumber2 part two of the customer number associated with the stop
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the dealerStop, or with status {@code 404 (Not Found)}.
+     */
+    @RequestMapping(path="/dealer-stops/customer/{customerNumber1}/{customerNumber2}", method = RequestMethod.GET)
+    public ResponseEntity<DealerStop> getDealerStopsByCustomer(@PathVariable Integer customerNumber1, @PathVariable Integer customerNumber2) {
+        log.debug("REST request to get DealerStop : {} : {}", customerNumber1, customerNumber2);
+        Optional<DealerStop> dealerStop = dealerStopRepository.findByCustomerNumber(customerNumber1, customerNumber2);
+        return ResponseUtil.wrapOrNotFound(dealerStop);
+    }
+
+    /**
      * {@code DELETE  /dealer-stops/:id} : delete the "id" dealerStop.
      *
      * @param id the id of the dealerStop to delete.

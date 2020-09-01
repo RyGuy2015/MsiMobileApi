@@ -66,6 +66,5 @@ public class JdbcDeliveryImportServiceTest {
         JdbcDeliveryImportService importService = new JdbcDeliveryImportService();
         importService.createMobileDeliveries(jdbcTemplate, deliveryRepository, dealerStopRepository);
 //        importService.testUnparsedDeliveries(jdbcTemplate);
-
     }
 }

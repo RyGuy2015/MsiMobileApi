@@ -7,6 +7,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Spring Data  repository for the DealerStop entity.
@@ -22,7 +23,7 @@ public interface DealerStopRepository extends JpaRepository<DealerStop, Long> {
     List<DealerStop> findByCurrentDelivery(@Param("deliveryId") Long deliveryId);
 
     @Query("From DealerStop g where g.customerNumber1 = :customerNumber1 and g.customerNumber2 = :customerNumber2")
-    List<DealerStop> findByCustomerNumber(@Param("customerNumber1") Integer customerNumber1, @Param("customerNumber2") Integer customerNumber2);
+    Optional<DealerStop> findByCustomerNumber(@Param("customerNumber1") Integer customerNumber1, @Param("customerNumber2") Integer customerNumber2);
 
-    List<DealerStop> findBySalesRepCode(String salesRepCode);
+    Optional<DealerStop> findBySalesRepCode(String salesRepCode);
 }

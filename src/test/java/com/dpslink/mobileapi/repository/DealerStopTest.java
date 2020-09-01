@@ -40,13 +40,13 @@ public class DealerStopTest {
 //        }
 //    }
 
-    @Test
-    public void findBySalesRepCode() {
-        List<DealerStop> dealerStops = dealerStopRepository.findBySalesRepCode("CCS");
-        for (DealerStop dealer: dealerStops){
-            System.out.println(dealer.toString());
-        }
-    }
+//    @Test
+//    public void findBySalesRepCode() {
+//        List<DealerStop> dealerStops = dealerStopRepository.findBySalesRepCode("CCS");
+//        for (DealerStop dealer: dealerStops){
+//            System.out.println(dealer.toString());
+//        }
+//    }
 
 
 

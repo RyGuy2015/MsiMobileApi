@@ -51,6 +51,7 @@ public class DealerStop implements Serializable {
     private String status;
 
     @ManyToOne
+//    @JoinColumn(name="delivery_id")
     @JsonIgnoreProperties(value = "dealerstops", allowSetters = true)
     private Delivery delivery;
 
